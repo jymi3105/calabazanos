@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-  header('Location: /php-login');
+  header('Location: index.php');
 }
 require 'database.php';
 
@@ -17,7 +17,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
   if (count($results) > 0 && ($_POST['password'] == $results['password'])) {
     $_SESSION['user_id'] = $results['id'];
-    header("Location: /php-login");
+    header("Location: index.php");
   } else {
     $message = 'Sorry, those credentials do not match';
   }
