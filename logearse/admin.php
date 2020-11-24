@@ -184,7 +184,7 @@ elseif ($_SESSION['rol']==2) {
 		<footer class="footer">
 
 			<hr class="soften" />
-			<p>&copy; Copyright Joseph Godoy <br /><br /></p>
+			<p>&copy; Copyright Jorge Miranda <br /><br /></p>
 		</footer>
 	</div><!-- /container -->
 
