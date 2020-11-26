@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-    header("Location:index.php");
+   //header("Location:../index.php");
 }
 
 ?>
@@ -10,12 +10,12 @@ if (@!$_SESSION['user']) {
 
 <head>
     <meta charset="utf-8">
-    <title>Proyecto Academias</title>
+    <title>Inventario del centro de sanidad forestal de Calabazanos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Joseph Godoy">
+    <meta name="author" content="Jorge Miranda Izcara">
 
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
@@ -24,12 +24,12 @@ if (@!$_SESSION['user']) {
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body data-offset="40" background="images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
     <div class="container">
         <header class="header">
             <div class="row">
                 <?php
-                include("include/cabecera.php");
+                include("../include/cabecera.php");
                 ?>
             </div>
         </header>
@@ -42,7 +42,7 @@ if (@!$_SESSION['user']) {
                 <div class="container">
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
+                            <li class=""><a href="admin.php">DATOS DEL SITIO WEB</a></li>
 
 
                         </ul>
@@ -51,9 +51,10 @@ if (@!$_SESSION['user']) {
                         </form>
                         <ul class="nav pull-right">
                             <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-                            <li><a href="desconectar.php"> Cerrar Cesión </a></li>
-                            <li><a href="index2.php"> Volver a inicio </a></li>
+                            <li><a href="../desconectar.php"> Cerrar Cesión </a></li>
+                            <li><a href="../index2.php"> Volver a inicio </a></li>
                         </ul>
+                        
                     </div><!-- /.nav-collapse -->
                 </div>
             </div><!-- /navbar-inner -->
@@ -64,31 +65,30 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Administración de usuarios registrados</h2>
+                    <h2> Administración del inventario del material de campo</h2>
                     <div class="well well-small">
                         <hr class="soft" />
                         <h4>Tabla de materiales de campo</h4>
                         <div class="row-fluid">
-
                             <?php
 
-                            require("connect_db.php");
-                            $sql = ("SELECT * FROM material_campo");
+                            require("../connect_db.php");
+                            $sql = ("SELECT material_campo.nombre,  pedidos.unidades, pedidos.provinciaDestino, pedidos.fechaPedido, currelas.nombre, material_campo.nombre
+                            FROM calabazanos.pedidos, calabazanos.material_campo, calabazanos.currelas
+                            WHERE pedidos.Material_campo_idMaterial_campo=material_campo.idMaterial_campo AND pedidos.currelas_DNI=currelas.DNI;");
 
                             //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
                             $query = mysqli_query($mysqli, $sql);
 
                             echo "<table border='1'; class='table table-hover';>";
                             echo "<tr class='warning'>";
-                            echo "<td>idMaterial</td>";
-                            echo "<td>nombre</td>";
-                            echo "<td>Descripcion</td>";
+                            echo "<td>Nombre</td>";
                             echo "<td>unidades</td>";
-                            echo "<td>Dedicacion</td>";
-                            echo "<td>Proveedor</td>";
+                            echo "<td>Provincia destino</td>";
+                            echo "<td>fechaPedido</td>";
+                            echo "<td>Nombre Trabajador</td>";
+                            echo "<td>Material de campo</td>";
                             echo "</tr>";
-
-
                             ?>
 
                             <?php
@@ -100,6 +100,7 @@ if (@!$_SESSION['user']) {
                                 echo "<td>$arreglo[3]</td>";
                                 echo "<td>$arreglo[4]</td>";
                                 echo "<td>$arreglo[5]</td>";
+                                
 
                                 /*
                                 echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='images/actualizar.gif' class='img-rounded'></td>";
@@ -123,11 +124,6 @@ if (@!$_SESSION['user']) {
                             }*/
 
                             ?>
-
-
-
-
-
 
                             <div class="span8">
 

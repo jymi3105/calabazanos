@@ -4,7 +4,7 @@ tengo que adaptarlo al inventario de campo
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-	header("Location:index.php");
+	//header("Location:../index.php");
 }
 #Las dos lineas siguiente de momento las voy a comentar porque quiero que me lleve al administrador a la pagina
 #normal en el caso de que tenga contraseña de ususario.
@@ -22,7 +22,7 @@ elseif ($_SESSION['rol']==2) {
 	<meta name="description" content="">
 	<meta name="author" content="Joseph Godoy">
 
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
 	<link rel="shortcut icon" href="assets/ico/favicon.ico">
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
@@ -31,12 +31,12 @@ elseif ($_SESSION['rol']==2) {
 	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body data-offset="40" background="images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
 				<?php
-				include("include/cabecera.php");
+				include("../include/cabecera.php");
 				?>
 			</div>
 		</header>
@@ -58,7 +58,8 @@ elseif ($_SESSION['rol']==2) {
 						</form>
 						<ul class="nav pull-right">
 							<li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-							<li><a href="desconectar.php"> Cerrar Cesión </a></li>
+							<li><a href="../desconectar.php"> Cerrar Cesión </a></li>
+							<li><a href="../index2.php"> Volver a inicio </a></li>
 						</ul>
 					</div><!-- /.nav-collapse -->
 				</div>
@@ -86,26 +87,22 @@ elseif ($_SESSION['rol']==2) {
 
 							<?php
 
-							require("connect_db.php");
-							$sql = ("SELECT * FROM currelas");
+							require("../connect_db.php");
+							$sql = ("SELECT * FROM calabazanos.material_campo");
 
 							//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
 							$query = mysqli_query($mysqli, $sql);
 
 							echo "<table border='1'; class='table table-hover';>";
 							echo "<tr class='warning'>";
-							echo "<td>dni</td>";
-							echo "<td>Usaurio</td>";
-							echo "<td>Password</td>";
-							echo "<td>Correo</td>";
-							echo "<td>Nombre</td>";
-							echo "<td>Apellidos</td>";
-							echo "<td>Password del administrador</td>";
-							echo "<td>Puesto</td>";
-							echo "<td>Coche</td>";
-							echo "<td>fecha Alta</td>";
-							echo "<td>Editar</td>";
+							echo "<td>Nombre del Material</td>";
+							echo "<td>Descripcion</td>";
+							echo "<td>Unidades en el inventario</td>";
+							echo "<td>Su dedicacion</td>";
+							echo "<td>Proveedor</td>";
+							echo "<td>Actualizar</td>";
 							echo "<td>Borrar</td>";
+							
 							echo "</tr>";
 
 
@@ -114,19 +111,15 @@ elseif ($_SESSION['rol']==2) {
 							<?php
 							while ($arreglo = mysqli_fetch_array($query)) {
 								echo "<tr class='success'>";
-								echo "<td>$arreglo[0]</td>";
 								echo "<td>$arreglo[1]</td>";
 								echo "<td>$arreglo[2]</td>";
 								echo "<td>$arreglo[3]</td>";
 								echo "<td>$arreglo[4]</td>";
 								echo "<td>$arreglo[5]</td>";
-								echo "<td>$arreglo[6]</td>";
-								echo "<td>$arreglo[7]</td>";
-								echo "<td>$arreglo[8]</td>";
-								echo "<td>$arreglo[9]</td>";
+								
 
-								echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='images/actualizar.gif' class='img-rounded'></td>";
-								echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='images/eliminar.png' class='img-rounded'/></a></td>";
+								echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
+								echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 
 
 
@@ -144,38 +137,14 @@ elseif ($_SESSION['rol']==2) {
 								//header('Location: proyectos.php');
 								echo "<script>location.href='admin.php'</script>";
 							}
-
 							?>
-
-
-
-
-
-
 							<div class="span8">
 
 							</div>
 						</div>
 						<br />
-
-
-
-						<!--EMPIEZA DESLIZABLE-->
-
-						<!--TERMINA DESLIZABLE-->
-
-
-
-
-
 					</div>
-
-
-
-
-
-
-					<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 				</div>
 
 			</div>
@@ -186,7 +155,7 @@ elseif ($_SESSION['rol']==2) {
 		<footer class="footer">
 
 			<hr class="soften" />
-			<p>&copy; Copyright Joseph Godoy <br /><br /></p>
+			<p>&copy; Copyright Jorge Miranda <br /><br /></p>
 		</footer>
 	</div><!-- /container -->
 
