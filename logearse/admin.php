@@ -79,9 +79,6 @@ elseif ($_SESSION['rol']==2) {
 						<h4>Tabla de Usuarios</h4>
 						<div class="row-fluid">
 
-
-
-
 							<?php
 
 							require("connect_db.php");
@@ -105,8 +102,6 @@ elseif ($_SESSION['rol']==2) {
 							echo "<td>Editar</td>";
 							echo "<td>Borrar</td>";
 							echo "</tr>";
-
-
 							?>
 
 							<?php

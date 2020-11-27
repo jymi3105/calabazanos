@@ -65,15 +65,15 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Administración del inventario del material de laboratorio</h2>
+                    <h2> Administración del inventario del material de campo</h2>
                     <div class="well well-small">
                         <hr class="soft" />
                         <h4>¿Que material quieres sacar?</h4>
                         <div class="row-fluid">
-                            <form method="post" action="ejecutaActLab.php">
+                            <form method="post" action="ejecutaActCampo.php">
                                 <?php
                                 require("../connect_db.php");
-                                $sql2 = ("SELECT nombreLab FROM material_laboratorio");
+                                $sql2 = ("SELECT nombre FROM calabazanos.material_campo");
 
                                 //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
                                 $query = mysqli_query($mysqli, $sql2);
@@ -83,24 +83,37 @@ if (@!$_SESSION['user']) {
                                     echo "<option value='$arreglo[0]'>$arreglo[0]</option>";
                                 }
                                 echo '</select>';
-                                $sql = ("SELECT nombreLab FROM material_laboratorio");
+                                /*$sql = ("SELECT nombreLab FROM material_laboratorio");*/
                                 ?>
                                 <input type="text" name="usuario" value="<?php @$_SESSION['user'] ?>" disabled>
                                 <p>¿Cuantas unidades vas a extraer?</p>
                                 <input type="number" name="unidades" required placeholder="Unidades que vas a extraer.">
+                                <P>¿A qué provincia irá destinado?</P>
+                                <select name="provincia">
+                                    <option value=0>Elige una opcion</option>
+                                    <option value="AVILA">AVILA</option>
+                                    <option value="BURGOS">BURGOS</option>
+                                    <option value="PALENCIA">PALENCIA</option>
+                                    <option value="LEON">LEON</option>
+                                    <option value="SALAMANCA">SALAMANCA</option>
+                                    <option value="SEGOVIA">SEGOVIA</option>
+                                    <option value="SORIA">SORIA</option>
+                                    <option value="VALLADOLID">VALLADOLID</option>
+                                    <option value="ZAMORA">ZAMORA</option>
+                                </select>
+
                                 <br />
 
                                 <input class="btn btn-primary" type="submit" value="Ejecutar">
                             </form>
-                            
+
                             <?php
                             if (isset($_POST['submit'])) {
-                                echo ' <script language="javascript">alert("Pues parece que si que hay stock");</script> ';
-                                require("ejecutaActLab.php");
+                                require("ejecutaActCampo.php");
                             }
                             ?>
                         </div>
-                      
+
                     </div>
                 </div>
 
