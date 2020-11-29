@@ -15,6 +15,13 @@ while ($arreglo = mysqli_fetch_array($query)) {
     $idProducto = $arreglo[0];
 }
 
+$sql = ("select currelas.DNI from currelas
+where usuario='$usuario';");
+$query = mysqli_query($mysqli, $sql);
+$dniProducto = '';
+while ($arreglo = mysqli_fetch_array($query)) {
+    $dniUsuario = $arreglo[0];
+}
 
 
 
@@ -33,7 +40,7 @@ if ($unidades > $stock) {
     require("../connect_db.php");
     //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
     mysqli_query($mysqli, "UPDATE calabazanos.material_campo SET unidades = unidades - '$unidades' WHERE (nombre = '$producto');");
-    mysqli_query($mysqli, "INSERT INTO calabazanos.pedidos (unidades, provinciaDestino, currelas_DNI, Material_campo_idMaterial_campo) VALUES ('$unidades', '$provincia', '2134', '$idProducto');");
+    mysqli_query($mysqli, "INSERT INTO calabazanos.pedidos (unidades, provinciaDestino, currelas_DNI, Material_campo_idMaterial_campo) VALUES ('$unidades', '$provincia', '$dniUsuario', '$idProducto');");
 
     echo ' <script language="javascript">alert("Ya has sacado algo!!");</script> ';
 

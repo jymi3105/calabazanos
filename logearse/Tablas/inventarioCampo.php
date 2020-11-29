@@ -1,10 +1,8 @@
-tengo que adaptarlo al inventario de campo
-
 <!DOCTYPE html>
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-	//header("Location:../index.php");
+	header("Location:../index.php");
 }
 #Las dos lineas siguiente de momento las voy a comentar porque quiero que me lleve al administrador a la pagina
 #normal en el caso de que tenga contraseña de ususario.
@@ -76,10 +74,10 @@ elseif ($_SESSION['rol']==2) {
 				<div class="caption">
 
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-					<h2> Administración de usuarios registrados</h2>
+					<h2> Inventario del material de campo.</h2>
 					<div class="well well-small">
 						<hr class="soft" />
-						<h4>Tabla de Usuarios</h4>
+						<h4>Material de Campo</h4>
 						<div class="row-fluid">
 
 

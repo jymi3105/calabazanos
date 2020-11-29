@@ -42,17 +42,14 @@ if (@!$_SESSION['user']) {
                 <div class="container">
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class=""><a href="admin.php">DATOS DEL SITIO WEB</a></li>
 
+                            <li><a href="../index2.php"> Volver a inicio </a></li>
 
                         </ul>
-                        <form action="#" class="navbar-search form-inline" style="margin-top:6px">
 
-                        </form>
                         <ul class="nav pull-right">
-                            <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
+                            <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> y tu dni es: <?php echo  $_SESSION['dni']?> </a></li>
                             <li><a href="../desconectar.php"> Cerrar Cesión </a></li>
-                            <li><a href="../index2.php"> Volver a inicio </a></li>
                         </ul>
 
                     </div><!-- /.nav-collapse -->
@@ -65,45 +62,49 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Administración del inventario del material de laboratorio</h2>
+                    <h2> Compra de nuevo material para el trabajo de laboratorio</h2>
                     <div class="well well-small">
                         <hr class="soft" />
-                        <h4>¿Que material quieres sacar?</h4>
+                        <h4>Completa el formulario</h4>
                         <div class="row-fluid">
-                            <form method="post" action="ejecutaActLab.php">
-                                <?php
-                                require("../connect_db.php");
-                                $sql2 = ("SELECT nombreLab FROM material_laboratorio");
+                            <form method="post" action="ejecutacompraMatLabNuevo.php">
 
-                                //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
-                                $query = mysqli_query($mysqli, $sql2);
-                                echo '<select name="producto">';
-                                echo "<option value=0>Elige una opcion</option>";
-                                while ($arreglo = mysqli_fetch_array($query)) {
-                                    echo "<option value='$arreglo[0]'>$arreglo[0]</option>";
-                                }
-                                echo '</select>';
-                                $sql = ("SELECT nombreLab FROM material_laboratorio");
-                                ?>
-                                <input type="text" name="usuario" value="<?php @$_SESSION['user'] ?>" disabled>
-                                <p>¿Cuantas unidades vas a extraer?</p>
-                                <input type="number" name="unidades" required placeholder="Unidades que vas a extraer.">
+                                <input type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>" readonly>
+                                <label>Nombre del material que vas a comprar: </label>
+                                <input type="text" name="nombre" required placeholder="Nombre del producto.">
+
+                                <label>Descripcion del material que vas a comprar: </label>
+                                <input type="text" name="descripcion" required placeholder="descripcion del producto">
+
+                                <label>Unidades del material que vas a comprar: </label>
+                                <input type="number" name="unidades" required placeholder="Unidades que vas a comprar.">
+
+                                <label>Precio total: </label>
+                                <input type="text" name="precio" required placeholder="Precio total">
+
+                                <label>Proveedor del material</label>
+                                <input type="text" name="proveedor" required placeholder="Proveedor.">
+
+                                <label>Dedicacion del material que vas a comprar: </label>
+                                <select name="tipo">
+                                    <option value="0">Elige una opción</option>
+                                    <option value="Durable">Durable</option>
+                                    <option value="Consumible">Consumible</option>
+                                 </select>
+
                                 <br />
 
                                 <input class="btn btn-primary" type="submit" value="Ejecutar">
                             </form>
-                            
+
                             <?php
                             if (isset($_POST['submit'])) {
-                                echo ' <script language="javascript">alert("Pues parece que si que hay stock");</script> ';
-                                require("ejecutaActLab.php");
+                                require("ejecutacompraMatLabNuevo.php");
                             }
                             ?>
                         </div>
-                      
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- Footer

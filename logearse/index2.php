@@ -18,10 +18,10 @@ if (@!$_SESSION['user']) {
 
 <head>
 	<meta charset="utf-8">
-	<title>Proyecto Academias</title>
+	<title>Pagina principal de usuario comun y corriente</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="author" content="Joseph Godoy">
+	<meta name="author" content="Jorge Miranda">
 
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<script src="bootstrap/js/jquery-1.8.3.min.js"></script>
@@ -92,10 +92,11 @@ if (@!$_SESSION['user']) {
 			<form action="#" class="navbar-search form-inline" style="margin-top:6px">
 				<ul class="nav pull-right">
 
-					<li><a href="#">Tomar algun material</a></li>
-					<li><a href="inventarioCampo.php">Ver inventario de campo</a></li>
-					<li><a href="#">Ver inventario del laboratorio</a></li>
-					<li><a href="#">Has comprado algo</a></li>
+					<li><a href="./updates/actualizaCampo.php">Tomar algun material para Campo</a></li>
+					<li><a href="./updates/actualizaLab.php">Tomar algun material del labortorio</a></li>
+					<li><a href="./Tablas/inventarioCampo.php">Ver inventario de campo</a></li>
+					<li><a href="./Tablas/materialLaboratorio.php">Ver inventario del laboratorio</a></li>
+					<li><a href="#">¿Has comprado algo?</a></li>
 
 				</ul>
 			</form>

@@ -73,7 +73,7 @@ if (@!$_SESSION['user']) {
                             <?php
 
                             require("../connect_db.php");
-                            $sql = ("SELECT material_campo.nombre,  pedidos.unidades, pedidos.provinciaDestino, pedidos.fechaPedido, currelas.nombre, material_campo.nombre
+                            $sql = ("SELECT material_campo.nombre,  pedidos.unidades, pedidos.provinciaDestino, pedidos.fechaPedido, currelas.usuario, material_campo.proveedor_Campo
                             FROM calabazanos.pedidos, calabazanos.material_campo, calabazanos.currelas
                             WHERE pedidos.Material_campo_idMaterial_campo=material_campo.idMaterial_campo AND pedidos.currelas_DNI=currelas.DNI;");
 
@@ -87,7 +87,7 @@ if (@!$_SESSION['user']) {
                             echo "<td>Provincia destino</td>";
                             echo "<td>fechaPedido</td>";
                             echo "<td>Nombre Trabajador</td>";
-                            echo "<td>Material de campo</td>";
+                            echo "<td>Proveedor del material</td>";
                             echo "</tr>";
                             ?>
 

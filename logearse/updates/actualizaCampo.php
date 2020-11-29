@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-    //header("Location:../index.php");
+    header("Location:../index.php");
 }
 
 ?>
@@ -30,6 +30,8 @@ if (@!$_SESSION['user']) {
             <div class="row">
                 <?php
                 include("../include/cabecera.php");
+
+                include("../include/menu.php");
                 ?>
             </div>
         </header>
@@ -42,8 +44,8 @@ if (@!$_SESSION['user']) {
                 <div class="container">
                     <div class="nav-collapse">
                         <ul class="nav">
+                        
                             <li class=""><a href="admin.php">DATOS DEL SITIO WEB</a></li>
-
 
                         </ul>
                         <form action="#" class="navbar-search form-inline" style="margin-top:6px">
@@ -85,7 +87,7 @@ if (@!$_SESSION['user']) {
                                 echo '</select>';
                                 /*$sql = ("SELECT nombreLab FROM material_laboratorio");*/
                                 ?>
-                                <input type="text" name="usuario" value="<?php @$_SESSION['user'] ?>" disabled>
+                                <input type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>" readonly>
                                 <p>¿Cuantas unidades vas a extraer?</p>
                                 <input type="number" name="unidades" required placeholder="Unidades que vas a extraer.">
                                 <P>¿A qué provincia irá destinado?</P>

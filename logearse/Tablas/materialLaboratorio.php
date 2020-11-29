@@ -65,7 +65,7 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Administración de usuarios registrados</h2>
+                    <h2> Inventario de material de Laboratorio</h2>
                     <div class="well well-small">
                         <hr class="soft" />
                         <h4>Tabla de materiales de laboratorio</h4>
@@ -85,8 +85,11 @@ if (@!$_SESSION['user']) {
                             echo "<td>unidades</td>";
                             echo "<td>Proveedor</td>";
                             echo "<td>Tipo</td>";
+                            /*
+                            Esto lo descomento para cuando lo vaya a usar de administrador
                             echo "<td>Actualizar</td>";
-							echo "<td>Borrar</td>";
+                            echo "<td>Borrar</td>";
+                            */
                             echo "</tr>";
                             ?>
 
@@ -98,10 +101,11 @@ if (@!$_SESSION['user']) {
                                 echo "<td>$arreglo[3]</td>";
                                 echo "<td>$arreglo[4]</td>";
                                 echo "<td>$arreglo[5]</td>";
-
+                                /*
+                                Solo para el administrador
                                 echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
                                 echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
-                                
+                                */
 
 
                                 echo "</tr>";
