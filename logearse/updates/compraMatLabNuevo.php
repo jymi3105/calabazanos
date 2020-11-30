@@ -48,7 +48,7 @@ if (@!$_SESSION['user']) {
                         </ul>
 
                         <ul class="nav pull-right">
-                            <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> y tu dni es: <?php echo  $_SESSION['dni']?> </a></li>
+                            <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong></a></li>
                             <li><a href="../desconectar.php"> Cerrar Cesión </a></li>
                         </ul>
 
@@ -69,7 +69,7 @@ if (@!$_SESSION['user']) {
                         <div class="row-fluid">
                             <form method="post" action="ejecutacompraMatLabNuevo.php">
 
-                                <input type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>" readonly>
+                                <input style="visibility: hidden;" type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>">
                                 <label>Nombre del material que vas a comprar: </label>
                                 <input type="text" name="nombre" required placeholder="Nombre del producto.">
 
@@ -90,11 +90,12 @@ if (@!$_SESSION['user']) {
                                     <option value="0">Elige una opción</option>
                                     <option value="Durable">Durable</option>
                                     <option value="Consumible">Consumible</option>
-                                 </select>
+                                </select>
 
                                 <br />
-
+                                <input style="visibility: hidden;" type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>">
                                 <input class="btn btn-primary" type="submit" value="Ejecutar">
+
                             </form>
 
                             <?php

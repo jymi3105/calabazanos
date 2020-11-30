@@ -35,17 +35,13 @@ nav li a:hover {
 	border-radius: 3px;
 	padding: 0.6em 0.3em;
 }
-footer{
-	border-top: 3px solid #000;
-	background: #848484;
-	color:#FF0000;
-	text-align: center;
-	font-size: 0.7em;
-	padding: 1em 0;
-}
+
 section#contenido{
 	background: #fff;
 	padding: 1em ;
 	margin: 2em auto;
 	width: 80%;
+}
+.compras{
+	background-color: yellow;
 }

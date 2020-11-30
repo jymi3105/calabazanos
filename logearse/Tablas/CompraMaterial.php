@@ -42,29 +42,30 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Administración del inventario del material de campo</h2>
+                    <h2> Listado de la compra de material</h2>
                     <div class="well well-small">
                         <hr class="soft" />
-                        <h4>Tabla de materiales de campo</h4>
+                        <h4>Listado de las compras</h4>
                         <div class="row-fluid">
                             <?php
 
                             require("../connect_db.php");
-                            $sql = ("SELECT material_campo.nombre,  pedidos.unidades, pedidos.provinciaDestino, pedidos.fechaPedido, currelas.usuario, material_campo.proveedor_Campo
-                            FROM calabazanos.pedidos, calabazanos.material_campo, calabazanos.currelas
-                            WHERE pedidos.Material_campo_idMaterial_campo=material_campo.idMaterial_campo AND pedidos.currelas_DNI=currelas.DNI;");
-
+                            $sql = ("select material_campo.nombre, compras.fechaCompra, compras.coste, compras.unidades,
+                            concat(currelas.nombre, ' ', currelas.apellidos)
+                            from compras, currelas, material_campo
+                            where currelas.DNI=compras.currelas_DNI 
+                            and compras.Material_campo_idMaterial_campo=material_campo.idMaterial_campo;");
                             //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
                             $query = mysqli_query($mysqli, $sql);
 
                             echo "<table border='1'; class='table table-hover';>";
                             echo "<tr class='warning'>";
-                            echo "<td>Nombre</td>";
-                            echo "<td>unidades</td>";
-                            echo "<td>Provincia destino</td>";
-                            echo "<td>fechaPedido</td>";
-                            echo "<td>Nombre Trabajador</td>";
-                            echo "<td>Proveedor del material</td>";
+                            echo "<td>Nombre Producto</td>";
+                            echo "<td>Fecha de Compra</td>";
+                            echo "<td>Coste</td>";
+                            echo "<td>Unidades</td>";
+                            echo "<td>Nombre del comprador</td>";
+                            echo "<td>Destino de la compra</td>";
                             echo "</tr>";
                             ?>
 
@@ -76,35 +77,32 @@ if (@!$_SESSION['user']) {
                                 echo "<td>$arreglo[2]</td>";
                                 echo "<td>$arreglo[3]</td>";
                                 echo "<td>$arreglo[4]</td>";
-                                echo "<td>$arreglo[5]</td>";
-
-
-                                /*
-                                echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='images/actualizar.gif' class='img-rounded'></td>";
-                                echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='images/eliminar.png' class='img-rounded'/></a></td>";
-                                */
-
+                                echo "<td>Campo</td>";
 
                                 echo "</tr>";
                             }
 
+                            $sql = "select material_laboratorio.nombreLab, compras.fechaCompra, compras.coste, compras.unidades,
+                            concat(currelas.nombre, ' ', currelas.apellidos) as 'nombre completo'
+                            from compras, currelas, material_laboratorio
+                            where currelas.DNI=compras.currelas_DNI 
+                            and compras.Material_laboratorio_idLab=material_laboratorio.idLab;";
+                            $query = mysqli_query($mysqli, $sql);
+
+                            while ($arreglo = mysqli_fetch_array($query)) {
+                                echo "<tr class='success'>";
+                                echo "<td>$arreglo[0]</td>";
+                                echo "<td>$arreglo[1]</td>";
+                                echo "<td>$arreglo[2]</td>";
+                                echo "<td>$arreglo[3]</td>";
+                                echo "<td>$arreglo[4]</td>";
+                                echo "<td>Laboratorio</td>";
+
+                                echo "</tr>";
+                            }
                             echo "</table>";
-                            #Con este metodo saco todas las variables
-                            /*extract($_GET);
-                            if (@$idborrar == 2) {
-
-                                $sqlborrar = "DELETE FROM currelas WHERE dni=$id";
-                                $resborrar = mysqli_query($mysqli, $sqlborrar);
-                                echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-                                //header('Location: proyectos.php');
-                                echo "<script>location.href='admin.php'</script>";
-                            }*/
-
                             ?>
 
-                            <div class="span8">
-
-                            </div>
                         </div>
                         <br />
                     </div>
@@ -117,7 +115,6 @@ if (@!$_SESSION['user']) {
         <hr class="soften" />
         <footer class="footer">
 
-            <hr class="soften" />
             <p>&copy; Copyright Jorge Miranda <br /><br /></p>
         </footer>
     </div><!-- /container -->

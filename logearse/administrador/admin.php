@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-	header("Location:index.php");
+	header("Location:../index.php");
 }
 #Las dos lineas siguiente de momento las voy a comentar porque quiero que me lleve al administrador a la pagina
 #normal en el caso de que tenga contraseña de ususario.
@@ -15,73 +15,44 @@ elseif ($_SESSION['rol']==2) {
 
 <head>
 	<meta charset="utf-8">
-	<title>Proyecto Academias</title>
+	<title>Administrador de la web</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="Joseph Godoy">
+	<meta name="author" content="Jorge Miranda Izcara">
 
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-	<link rel="shortcut icon" href="assets/ico/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-</head>
+	</head>
 
-<body data-offset="40" background="images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
 				<?php
-				include("include/cabecera.php");
+				include("../include/cabecera.php");
 				?>
 			</div>
 		</header>
 
 		<!-- Navbar
     ================================================== -->
+		<?php
+			include("../include/menuAdmin.php");
 
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
-
-
-						</ul>
-						<form action="#" class="navbar-search form-inline" style="margin-top:6px">
-
-						</form>
-						<ul class="nav pull-right">
-							<li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-							<li><a href="desconectar.php"> Cerrar Cesión </a></li>
-						</ul>
-					</div><!-- /.nav-collapse -->
-				</div>
-			</div><!-- /navbar-inner -->
-		</div>
+		?>
 
 		<!-- ======================================================================================================================== -->
 		<div class="row">
-
-
-
 			<div class="span12">
-
 				<div class="caption">
-
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
 					<h2> Administración de usuarios registrados</h2>
 					<div class="well well-small">
 						<hr class="soft" />
 						<h4>Tabla de Usuarios</h4>
 						<div class="row-fluid">
-
 							<?php
 
-							require("connect_db.php");
+							require("../connect_db.php");
 							$sql = ("SELECT * FROM currelas");
 
 							//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
@@ -118,11 +89,8 @@ elseif ($_SESSION['rol']==2) {
 								echo "<td>$arreglo[8]</td>";
 								echo "<td>$arreglo[9]</td>";
 
-								echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='images/actualizar.gif' class='img-rounded'></td>";
-								echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='images/eliminar.png' class='img-rounded'/></a></td>";
-
-
-
+								echo "<td><a href='actualizarUsuario.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
+								echo "<td><a href='adminUsuarios.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 								echo "</tr>";
 							}
 
@@ -134,50 +102,23 @@ elseif ($_SESSION['rol']==2) {
 								$sqlborrar = "DELETE FROM currelas WHERE dni=$id";
 								$resborrar = mysqli_query($mysqli, $sqlborrar);
 								echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-								//header('Location: proyectos.php');
-								echo "<script>location.href='admin.php'</script>";
+							
+								echo "<script>location.href='adminUsuarios.php'</script>";
 							}
 
 							?>
-
-
-
-
-
-
 							<div class="span8">
 
 							</div>
 						</div>
 						<br />
-
-
-
-						<!--EMPIEZA DESLIZABLE-->
-
-						<!--TERMINA DESLIZABLE-->
-
-
-
-
-
 					</div>
-
-
-
-
-
-
-					<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 				</div>
-
 			</div>
 		</div>
 		<!-- Footer
       ================================================== -->
-		<hr class="soften" />
 		<footer class="footer">
-
 			<hr class="soften" />
 			<p>&copy; Copyright Jorge Miranda <br /><br /></p>
 		</footer>

@@ -21,7 +21,7 @@ session_start();
 			#$_SESSION['rol']=$f2['rol'];
 
 			echo '<script>alert("BIENVENIDO ADMINISTRADOR")</script> ';
-			echo "<script>location.href='admin.php'</script>";
+			echo "<script>location.href='administrador/admin.php'</script>";
 		
 		}
 	}

@@ -2,7 +2,7 @@
 
 
 extract($_POST);	//extraer todos los valores del metodo post del formulario de actualizar
-	require("connect_db.php");
+	require("../connect_db.php");
 	$sentencia="update currelas set usuario='$usuario', contrasenia='$contrasenia', email='$email', nombre='$nombre', apellidos='$apellidos', contraseniaAd='$pasadmin', puesto='$puesto', coche='$coche', fecha_alta='$fechaA' where dni='$id'";
 	//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
 	$resent=mysqli_query($mysqli,$sentencia);

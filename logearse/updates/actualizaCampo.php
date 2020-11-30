@@ -31,7 +31,6 @@ if (@!$_SESSION['user']) {
                 <?php
                 include("../include/cabecera.php");
 
-                include("../include/menu.php");
                 ?>
             </div>
         </header>
@@ -39,28 +38,10 @@ if (@!$_SESSION['user']) {
         <!-- Navbar
     ================================================== -->
 
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                        
-                            <li class=""><a href="admin.php">DATOS DEL SITIO WEB</a></li>
+        <?php
 
-                        </ul>
-                        <form action="#" class="navbar-search form-inline" style="margin-top:6px">
-
-                        </form>
-                        <ul class="nav pull-right">
-                            <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-                            <li><a href="../desconectar.php"> Cerrar Cesión </a></li>
-                            <li><a href="../index2.php"> Volver a inicio </a></li>
-                        </ul>
-
-                    </div><!-- /.nav-collapse -->
-                </div>
-            </div><!-- /navbar-inner -->
-        </div>
+        include("../include/menu.php");
+        ?>
 
         <!-- ======================================================================================================================== -->
         <div class="row">
@@ -87,7 +68,7 @@ if (@!$_SESSION['user']) {
                                 echo '</select>';
                                 /*$sql = ("SELECT nombreLab FROM material_laboratorio");*/
                                 ?>
-                                <input type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>" readonly>
+                                <input style="visibility: hidden;" type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>">
                                 <p>¿Cuantas unidades vas a extraer?</p>
                                 <input type="number" name="unidades" required placeholder="Unidades que vas a extraer.">
                                 <P>¿A qué provincia irá destinado?</P>

@@ -12,7 +12,6 @@ if (@!$_SESSION['user']) {
     <meta charset="utf-8">
     <title>Inventario del centro de sanidad forestal de Calabazanos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
     <meta name="author" content="Jorge Miranda Izcara">
 
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -67,9 +66,11 @@ if (@!$_SESSION['user']) {
                         <hr class="soft" />
                         <h4>Completa el formulario</h4>
                         <div class="row-fluid">
-                            <form method="post" action="ejecutacompraMatCampoNuevo.php">
+                            <form method="post" action="ejecutacompraMatCampoExistente.php">
 
                                 <input style="visibility: hidden;" type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>">
+                                <input style="visibility: hidden;" type="text" name="dniUsuario" value="<?php echo $_SESSION['dni']; ?>">
+                                
                                 <label>Nombre del material que vas a comprar: </label>
                                 <?php
                                 require("../connect_db.php");
@@ -83,30 +84,13 @@ if (@!$_SESSION['user']) {
                                     echo "<option value='$arreglo[0]'>$arreglo[0]</option>";
                                 }
                                 echo '</select>';
-                                /*$sql = ("SELECT nombreLab FROM material_laboratorio");*/
                                 ?>
-
-                                <label>Descripcion del material que vas a comprar: </label>
-                                <input type="text" name="descripcion" required placeholder="descripcion del producto">
 
                                 <label>Unidades del material que vas a comprar: </label>
                                 <input type="number" name="unidades" required placeholder="Unidades que vas a comprar.">
 
                                 <label>Precio total: </label>
                                 <input type="text" name="precio" required placeholder="Precio total">
-
-                                <label>Dedicacion del material que vas a comprar: </label>
-                                <select name="dedicacion">
-                                    <option value="0">Elige una opción</option>
-                                    <option value="Campo">Campo</option>
-                                    <option value="Trampeo">Trampeo</option>
-                                    <option value="Muestreo">Muestreo</option>
-                                    <option value="Viveros">Viveros</option>
-                                    <option value="Tratamientos">Tratamientos</option>
-                                </select>
-
-                                <label>Proveedor del material</label>
-                                <input type="text" name="proveedor" required placeholder="Proveedor.">
 
                                 <br />
 
@@ -115,7 +99,7 @@ if (@!$_SESSION['user']) {
 
                             <?php
                             if (isset($_POST['submit'])) {
-                                require("ejecutacompraMatCampoNuevo.php");
+                                require("ejecutacompraMatCampoExistente.php");
                             }
                             ?>
                         </div>

@@ -49,18 +49,17 @@ if (@!$_SESSION['user']) {
 		?>
 		<!-- ======================================================================================================================== -->
 
-		<h3>¿Que es lo que quieres hacer?</h3>
+		<h3>Escoge el tipo de compra</h3>
 		<div class="row" style="text-align:center">
-			<form action="#" class="navbar-search form-inline" style="margin-top:6px">
+			<form class="navbar-search form-inline" style="margin-top:6px">
+
 				<div class="compras">
-
-					<a href="./updates/actualizaCampo.php">Tomar algun material para Campo</a>
-					<a href="./updates/actualizaLab.php">Tomar algun material del labortorio</a>
-					<a href="./Tablas/inventarioCampo.php">Ver inventario de campo</a>
-					<a href="./Tablas/materialLaboratorio.php">Ver inventario del laboratorio</a>
-					<a href="index2compras.php">¿Has comprado algo?</a>
-
+					<a href="./updates/compraMatLabExistente.php">Comprar material de laboratorio Existente en inventario y comprar</a>
+					<a href="./updates/compraMatLabNuevo.php">Dar de alta nuevo material de laboratorio y comprar</a>
+					<a href="./updates/compraMatCampoExistente.php">Comprar material de campo Existente en inventario</a>
+					<a href="./updates/compraMatCampoNuevo.php">Dar de alta nuevo material de campo y comprar</a>
 				</div>
+
 			</form>
 		</div>
 

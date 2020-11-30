@@ -12,7 +12,6 @@ if (@!$_SESSION['user']) {
     <meta charset="utf-8">
     <title>Inventario del centro de sanidad forestal de Calabazanos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
     <meta name="author" content="Jorge Miranda Izcara">
 
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -41,22 +40,25 @@ if (@!$_SESSION['user']) {
 
         include("../include/menu.php");
         ?>
-
         <!-- ======================================================================================================================== -->
         <div class="row">
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Administración del inventario del material de laboratorio</h2>
+                    <h2> Compra de material para el laboratorio</h2>
                     <div class="well well-small">
                         <hr class="soft" />
-                        <h4>¿Que material quieres sacar?</h4>
+                        <h4>Completa el formulario</h4>
                         <div class="row-fluid">
-                            <form method="post" action="ejecutaActLab.php">
+                            <form method="post" action="ejecutacompraMatLabExistente.php">
+
+                                <input style="visibility: hidden;" type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>">
+                                <input style="visibility: hidden;" type="text" name="dniUsuario" value="<?php echo $_SESSION['dni']; ?>">
+
+                                <label>Nombre del material que vas a comprar: </label>
                                 <?php
                                 require("../connect_db.php");
-                                $sql2 = ("SELECT nombreLab FROM material_laboratorio");
-
+                                $sql2 = ("SELECT nombreLab FROM calabazanos.material_laboratorio;");
                                 //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
                                 $query = mysqli_query($mysqli, $sql2);
                                 echo '<select name="producto">';
@@ -65,11 +67,14 @@ if (@!$_SESSION['user']) {
                                     echo "<option value='$arreglo[0]'>$arreglo[0]</option>";
                                 }
                                 echo '</select>';
-                                $sql = ("SELECT nombreLab FROM material_laboratorio");
                                 ?>
-                                <input style="visibility: hidden;" type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>">
-                                <p>¿Cuantas unidades vas a extraer?</p>
-                                <input type="number" name="unidades" required placeholder="Unidades que vas a extraer.">
+
+                                <label>Unidades del material que vas a comprar: </label>
+                                <input type="number" name="unidades" required placeholder="Unidades que vas a comprar.">
+
+                                <label>Precio total: </label>
+                                <input type="text" name="precio" required placeholder="Precio total">
+
                                 <br />
 
                                 <input class="btn btn-primary" type="submit" value="Ejecutar">
@@ -77,15 +82,12 @@ if (@!$_SESSION['user']) {
 
                             <?php
                             if (isset($_POST['submit'])) {
-                                echo ' <script language="javascript">alert("Pues parece que si que hay stock");</script> ';
-                                require("ejecutaActLab.php");
+                                require("ejecutacompraMatLabExistente.php");
                             }
                             ?>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- Footer

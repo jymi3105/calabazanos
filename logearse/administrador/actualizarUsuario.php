@@ -2,33 +2,27 @@
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-	header("Location:index.php");
+	header("Location:../index.php");
 }
 ?>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
-	<title>Proyecto Academias</title>
+	<title>Actualizacion de usuario</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="Joseph Godoy">
+	<meta name="author" content="Jorge Miranda Izcara">
 
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-	<link rel="shortcut icon" href="assets/ico/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-</head>
+	</head>
 
-<body data-offset="40" background="images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
 				<?php
-				include("include/cabecera.php");
+				include("../include/cabecera.php");
 				?>
 			</div>
 		</header>
@@ -42,7 +36,7 @@ if (@!$_SESSION['user']) {
 				<div class="container">
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
+							<li class=""><a href="adminUsuarios.php">ADMINISTRADOR DEL SITIO</a></li>
 
 
 						</ul>
@@ -50,8 +44,8 @@ if (@!$_SESSION['user']) {
 
 						</form>
 						<ul class="nav pull-right">
-							<li><a href="">Bienvenido o bienvenida<strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-							<li><a href="desconectar.php"> Cerrar Cesión </a></li>
+							<li><a href="">Bienvenido o bienvenida <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
+							<li><a href="../desconectar.php"> Cerrar Cesión </a></li>
 						</ul>
 					</div><!-- /.nav-collapse -->
 				</div>
@@ -60,13 +54,8 @@ if (@!$_SESSION['user']) {
 
 		<!-- ======================================================================================================================== -->
 		<div class="row">
-
-
-
 			<div class="span12">
-
 				<div class="caption">
-
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
 					<h2> Administración de usuarios registrados</h2>
 					<div class="well well-small">
@@ -76,7 +65,7 @@ if (@!$_SESSION['user']) {
 
 							<?php
 							extract($_GET);
-							require("connect_db.php");
+							require("../connect_db.php");
 
 							$sql = "SELECT * FROM currelas WHERE dni=$id";
 							//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
@@ -111,32 +100,13 @@ if (@!$_SESSION['user']) {
 								<input type="submit" value="Guardar" class="btn btn-success btn-primary">
 							</form>
 
-
-
-
 							<div class="span8">
-
 							</div>
 						</div>
 						<br />
-
-
-
 						<!--EMPIEZA DESLIZABLE-->
-
 						<!--TERMINA DESLIZABLE-->
-
-
-
-
-
 					</div>
-
-
-
-
-
-
 					<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 				</div>
 

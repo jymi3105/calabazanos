@@ -62,14 +62,13 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Compra de nuevo material para el trabajo de campo</h2>
+                    <h2> Compra de material nuevo para el trabajo de campo</h2>
                     <div class="well well-small">
                         <hr class="soft" />
                         <h4>Completa el formulario</h4>
                         <div class="row-fluid">
                             <form method="post" action="ejecutacompraMatCampoNuevo.php">
 
-                                <input type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>" readonly>
                                 <label>Nombre del material que vas a comprar: </label>
                                 <input type="text" name="nombre" required placeholder="Nombre del producto.">
 
@@ -96,7 +95,7 @@ if (@!$_SESSION['user']) {
                                 <input type="text" name="proveedor" required placeholder="Proveedor.">
 
                                 <br />
-
+                                <input style="visibility: hidden;" type="text" name="usuario" value="<?php echo $_SESSION['user']; ?>">
                                 <input class="btn btn-primary" type="submit" value="Ejecutar">
                             </form>
 
