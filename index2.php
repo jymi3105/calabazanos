@@ -25,6 +25,7 @@ if (@!$_SESSION['user']) {
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<script src="bootstrap/js/jquery-1.8.3.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
 	<?php
 		include("include/miestilo.php");
 	?>
@@ -49,17 +50,18 @@ if (@!$_SESSION['user']) {
 		?>
 		<!-- ======================================================================================================================== -->
 
-		<h2>Escoge el tipo de compra</h2>
+		<h2>¿Que es lo que quieres hacer?</h2>
 		<div class="row" style="text-align:center">
-			<form class="navbar-search form-inline" style="margin-top:6px">
-
+			<form action="#" class="navbar-search form-inline" style="margin-top:6px">
 				<div class="compras">
-					<a href="./updates/compraMatLabExistente.php">Comprar material de laboratorio Existente en inventario y comprar</a>
-					<a href="./updates/compraMatLabNuevo.php">Dar de alta nuevo material de laboratorio y comprar</a>
-					<a href="./updates/compraMatCampoExistente.php">Comprar material de campo Existente en inventario</a>
-					<a href="./updates/compraMatCampoNuevo.php">Dar de alta nuevo material de campo y comprar</a>
-				</div>
 
+					<a href="./updates/actualizaCampo.php">Tomar algun material para Campo</a>
+					<a href="./updates/actualizaLab.php">Tomar algun material del laboratorio</a>
+					<a href="./Tablas/inventarioCampo.php">Ver inventario de campo</a>
+					<a href="./Tablas/materialLaboratorio.php">Ver inventario del laboratorio</a>
+					<a href="index2compras.php">¿Has comprado algo?</a>
+
+				</div>
 			</form>
 		</div>
 
@@ -70,6 +72,7 @@ if (@!$_SESSION['user']) {
 		include("include/pie.php");
 		?>
 
+		
 	</div><!-- /container -->
 
 

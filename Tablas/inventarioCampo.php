@@ -78,12 +78,7 @@ elseif ($_SESSION['rol']==2) {
 							echo "<td>Unidades en el inventario</td>";
 							echo "<td>Su dedicacion</td>";
 							echo "<td>Proveedor</td>";
-							echo "<td>Actualizar</td>";
-							echo "<td>Borrar</td>";
-
 							echo "</tr>";
-
-
 							?>
 
 							<?php
@@ -94,27 +89,10 @@ elseif ($_SESSION['rol']==2) {
 								echo "<td>$arreglo[3]</td>";
 								echo "<td>$arreglo[4]</td>";
 								echo "<td>$arreglo[5]</td>";
-
-
-								echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
-								echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
-
-
-
 								echo "</tr>";
 							}
 
 							echo "</table>";
-							#Con este metodo saco todas las variables
-							extract($_GET);
-							if (@$idborrar == 2) {
-
-								$sqlborrar = "DELETE FROM currelas WHERE dni=$id";
-								$resborrar = mysqli_query($mysqli, $sqlborrar);
-								echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-								//header('Location: proyectos.php');
-								echo "<script>location.href='admin.php'</script>";
-							}
 							?>
 							<div class="span8">
 

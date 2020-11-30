@@ -15,19 +15,19 @@ session_start();
 	//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
 	$sql2=mysqli_query($mysqli,"SELECT * FROM currelas WHERE usuario='$username'");
 	if($f2=mysqli_fetch_assoc($sql2)){
-		if($pass==$f2['contraseniaAd']){
+		if ($pass=='') {
+			echo '<script>alert("TIENE QUE INGRESAR CON CONTRASEÑA")</script> ';
+			echo "<script>location.href='index.php'</script>";
+		}elseif($pass==$f2['contraseniaAd']){
 			$_SESSION['dni']=$f2['DNI'];
 			$_SESSION['user']=$f2['usuario'];
 			$_SESSION['pass']=$f2['contrasenia'];
 			$_SESSION['passAd']=$f2['contraseniaAd'];
 
-
 			echo '<script>alert("BIENVENIDO ADMINISTRADOR")</script> ';
 			echo "<script>location.href='administrador/admin.php'</script>";
-		
 		}
 	}
-
 
 	$sql=mysqli_query($mysqli,"SELECT * FROM currelas WHERE usuario='$username'");
 	if($f=mysqli_fetch_assoc($sql)){

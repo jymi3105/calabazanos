@@ -34,11 +34,26 @@ if (@!$_SESSION['user']) {
         <!-- Navbar
     ================================================== -->
 
-        <?php
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class=""><a href="../administrador/admin.php">ADMINISTRADOR DEL SITIO</a></li>
 
-        include("../include/menu.php");
 
-        ?>
+                        </ul>
+                        <form class="navbar-search form-inline" style="margin-top:6px">
+
+                        </form>
+                        <ul class="nav pull-right">
+                            <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
+                            <li><a href="../desconectar.php"> Cerrar Cesión </a></li>
+                        </ul>
+                    </div><!-- /.nav-collapse -->
+                </div>
+            </div><!-- /navbar-inner -->
+        </div>
 
         <!-- ======================================================================================================================== -->
         <div class="row">
@@ -54,7 +69,7 @@ if (@!$_SESSION['user']) {
 
                             require("../connect_db.php");
                             $sql = ("select material_campo.nombre, compras.fechaCompra, compras.coste, compras.unidades,
-                            concat(currelas.nombre, ' ', currelas.apellidos)
+                            concat(currelas.nombre, ' ', currelas.apellidos), compras.idcompras
                             from compras, currelas, material_campo
                             where currelas.DNI=compras.currelas_DNI 
                             and compras.Material_campo_idMaterial_campo=material_campo.idMaterial_campo;");
@@ -69,6 +84,8 @@ if (@!$_SESSION['user']) {
                             echo "<td>Unidades</td>";
                             echo "<td>Nombre del comprador</td>";
                             echo "<td>Destino de la compra</td>";
+                            echo "<td>Actualizar</td>";
+                            echo "<td>Borrar</td>";
                             echo "</tr>";
                             ?>
 
@@ -81,12 +98,21 @@ if (@!$_SESSION['user']) {
                                 echo "<td>$arreglo[3]</td>";
                                 echo "<td>$arreglo[4]</td>";
                                 echo "<td>Campo</td>";
+                                echo "<td><a href='../Administrador/actualizarTablaGastos.php?id=$arreglo[5]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
+                                echo "<td><a href='compraMaterial.php?id=$arreglo[5]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 
                                 echo "</tr>";
                             }
+                             #Con este metodo saco todas las variables
+                            extract($_GET);
+                            if (@$idborrar == 2) {
+
+                                $sqlborrar = "DELETE FROM compras WHERE idcompras=$id";
+                                $resborrar = mysqli_query($mysqli, $sqlborrar);
+                            }
 
                             $sql = "select material_laboratorio.nombreLab, compras.fechaCompra, compras.coste, compras.unidades,
-                            concat(currelas.nombre, ' ', currelas.apellidos) as 'nombre completo'
+                            concat(currelas.nombre, ' ', currelas.apellidos), compras.idcompras
                             from compras, currelas, material_laboratorio
                             where currelas.DNI=compras.currelas_DNI 
                             and compras.Material_laboratorio_idLab=material_laboratorio.idLab;";
@@ -100,10 +126,22 @@ if (@!$_SESSION['user']) {
                                 echo "<td>$arreglo[3]</td>";
                                 echo "<td>$arreglo[4]</td>";
                                 echo "<td>Laboratorio</td>";
-
+                                echo "<td><a href='../Administrador/actualizarTablaGastos.php?id=$arreglo[5]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
+                                echo "<td><a href='compraMaterial.php?id=$arreglo[5]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
                                 echo "</tr>";
                             }
                             echo "</table>";
+
+                             #Con este metodo saco todas las variables
+                             extract($_GET);
+                             if (@$idborrar == 2) {
+ 
+                                 $sqlborrar = "DELETE FROM compras WHERE idcompras=$id";
+                                 $resborrar = mysqli_query($mysqli, $sqlborrar);
+                                 echo '<script>alert("COMPRA ELIMINADA")</script> ';
+ 
+                                 echo "<script>location.href='compraMaterial.php'</script>";
+                             }
                             ?>
 
                         </div>

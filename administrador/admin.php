@@ -6,7 +6,7 @@ if (@!$_SESSION['user']) {
 }
 
 elseif ($_SESSION['passAd']=='') {
-	header("Location:../index2.php");
+	header("Location:../index.php");
 }
 ?>
 <html lang="en">
@@ -56,6 +56,7 @@ elseif ($_SESSION['passAd']=='') {
 							<a href="adminUsuarios.php">Administrar usuarios</a>
 							<a href="adminMaterialLaboratorio.php">Administrar materiales de laboratorio</a>
 							<a href="adminMaterialCampo.php">Administrar materiales de campo</a>
+							<a href="../Tablas/CompraMaterial.php">Ver el listado de las compras</a>
 
 						</div>
 						<br />
