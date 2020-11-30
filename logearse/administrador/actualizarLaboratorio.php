@@ -3,7 +3,7 @@
 session_start();
 if (@!$_SESSION['user']) {
 	header("Location:../index.php");
-}elseif ($_SESSION['passAd']=='') {
+} elseif ($_SESSION['passAd'] == '') {
 	header("Location:../index2.php");
 }
 ?>
@@ -17,7 +17,7 @@ if (@!$_SESSION['user']) {
 
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-	</head>
+</head>
 
 <body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
 	<div class="container">
@@ -33,71 +33,46 @@ if (@!$_SESSION['user']) {
     ================================================== -->
 
 
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li class=""><a href="adminUsuarios.php">ADMINISTRADOR DEL SITIO</a></li>
+		<?php
+		include("../include/menuAdmin.php");
 
-
-						</ul>
-						<form action="#" class="navbar-search form-inline" style="margin-top:6px">
-
-						</form>
-						<ul class="nav pull-right">
-							<li><a href="">Bienvenido o bienvenida <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-							<li><a href="../desconectar.php"> Cerrar Cesión </a></li>
-						</ul>
-					</div><!-- /.nav-collapse -->
-				</div>
-			</div><!-- /navbar-inner -->
-		</div>
+		?>
 
 		<!-- ======================================================================================================================== -->
 		<div class="row">
 			<div class="span12">
 				<div class="caption">
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-					<h2> Administración de usuarios registrados</h2>
+					<h2> Administración de materiales de laboatorio</h2>
 					<div class="well well-small">
 						<hr class="soft" />
-						<h4>Edición de usuarios</h4>
+						<h4>Edición de materiales</h4>
 						<div class="row-fluid">
 
 							<?php
 							extract($_GET);
 							require("../connect_db.php");
 
-							$sql = "SELECT * FROM currelas WHERE dni=$id";
+							$sql = "SELECT * FROM material_laboratorio WHERE idLab=$id";
 							//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
 							$ressql = mysqli_query($mysqli, $sql);
 							while ($row = mysqli_fetch_row($ressql)) {
-								$dni = $row[0];
-								$usuario = $row[1];
-								$contrasenia = $row[2];
-								$email = $row[3];
-								$nombre = $row[4];
-								$apellidos = $row[5];
-								$pasadmin = $row[6];
-								$puesto = $row[7];
-								$coche = $row[8];
-								$fechaA = $row[9];
+								$ids = $row[0];
+								$nombre = $row[1];
+								$descripcion = $row[2];
+								$unidades = $row[3];
+								$proveedor = $row[4];
+								$tipo = $row[5];
 							}
 							?>
 
-							<form action="ejecutaactualizar.php" method="post">
-								Dni<br><input type="text" name="id" value="<?php echo $dni ?>" readonly="readonly"><br>
-								Usuario<br> <input type="text" name="usuario" value="<?php echo $usuario ?>"><br>
-								Password usuario<br> <input type="text" name="contrasenia" value="<?php echo $contrasenia ?>"><br>
-								Correo usuario<br> <input type="text" name="email" value="<?php echo $email ?>"><br>
-								Nombre<br> <input type="text" name="nombre" value="<?php echo $nombre ?>"><br>
-								Apellidos<br> <input type="text" name="apellidos" value="<?php echo $apellidos ?>"><br>
-								Pssword administrador<br> <input type="text" name="pasadmin" value="<?php echo $pasadmin ?>"><br>
-								Puesto<br> <input type="text" name="puesto" value="<?php echo $puesto ?>"><br>
-								Coche<br> <input type="text" name="coche" value="<?php echo $coche ?>"><br>
-								Fecha Alta<br> <input type="text" name="fechaA" value="<?php echo $fechaA ?>"><br>
-
+							<form action="ejecutaactualLaboratorio.php" method="post">
+								Nombre del producto <br><input type="text" name="nombre" value="<?php echo $nombre ?>" readonly="readonly"><br>
+								Descripcion del producto<br> <input type="text" name="descripcion" value="<?php echo $descripcion ?>"><br>
+								Unidades en el almacen<br> <input type="text" name="unidades" value="<?php echo $unidades ?>"><br>
+								Proveedor<br> <input type="text" name="proveedor" value="<?php echo $proveedor ?>"><br>
+								Tipo<br> <input type="text" name="tipo" value="<?php echo $tipo ?>">
+								<input style="visibility: hidden;" type="text" name="id" value="<?php echo $ids ?>">
 								<br>
 								<input type="submit" value="Guardar" class="btn btn-success btn-primary">
 							</form>

@@ -18,7 +18,9 @@ session_start();
 		if($pass==$f2['contraseniaAd']){
 			$_SESSION['dni']=$f2['DNI'];
 			$_SESSION['user']=$f2['usuario'];
-			#$_SESSION['rol']=$f2['rol'];
+			$_SESSION['pass']=$f2['contrasenia'];
+			$_SESSION['passAd']=$f2['contraseniaAd'];
+
 
 			echo '<script>alert("BIENVENIDO ADMINISTRADOR")</script> ';
 			echo "<script>location.href='administrador/admin.php'</script>";
@@ -32,8 +34,8 @@ session_start();
 		if($pass==$f['contrasenia']){
 			$_SESSION['dni']=$f['DNI'];
 			$_SESSION['user']=$f['usuario'];
-			#$_SESSION['rol']=$f['rol'];
-
+			$_SESSION['pass']=$f['contrasenia'];
+			$_SESSION['passAd']=$f['contraseniaAd'];
 			header("Location: index2.php");
 		}else{
 			echo '<script>alert("CONTRASEÑA INCORRECTA")</script> ';
