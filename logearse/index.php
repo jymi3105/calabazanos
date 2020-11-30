@@ -10,7 +10,7 @@
 	<title>Proyecto Inventario de calabazanos</title>
 </head>
 
-<body background="images/golf.jpg" style="background-attachment: fixed">
+<body background="images/golf.png" style="background-attachment: fixed">
 	<center>
 		<div class="tit">
 			<h2 style="color: #0000FF; ">Inicio de sesión</h2>

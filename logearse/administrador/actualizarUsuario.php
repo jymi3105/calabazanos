@@ -3,7 +3,7 @@
 session_start();
 if (@!$_SESSION['user']) {
 	header("Location:../index.php");
-}elseif ($_SESSION['passAd']=='') {
+} elseif ($_SESSION['passAd'] == '') {
 	header("Location:../index2.php");
 }
 ?>
@@ -14,12 +14,14 @@ if (@!$_SESSION['user']) {
 	<title>Actualizacion de usuario</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Jorge Miranda Izcara">
-
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<?php
+	include("../include/miestilo.php");
+	?>
+</head>
 
-	</head>
-
-<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/papeles.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
@@ -31,35 +33,16 @@ if (@!$_SESSION['user']) {
 
 		<!-- Navbar
     ================================================== -->
-
-
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li class=""><a href="adminUsuarios.php">ADMINISTRADOR DEL SITIO</a></li>
-
-
-						</ul>
-						<form action="#" class="navbar-search form-inline" style="margin-top:6px">
-
-						</form>
-						<ul class="nav pull-right">
-							<li><a href="">Bienvenido o bienvenida <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-							<li><a href="../desconectar.php"> Cerrar Cesión </a></li>
-						</ul>
-					</div><!-- /.nav-collapse -->
-				</div>
-			</div><!-- /navbar-inner -->
-		</div>
+		<?php
+		include("../include/menuAdmin.php");
+		?>
 
 		<!-- ======================================================================================================================== -->
 		<div class="row">
 			<div class="span12">
 				<div class="caption">
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-					<h2> Administración de usuarios registrados</h2>
+					<h2> Actualización de usuarios registrados</h2>
 					<div class="well well-small">
 						<hr class="soft" />
 						<h4>Edición de usuarios</h4>
@@ -106,8 +89,6 @@ if (@!$_SESSION['user']) {
 							</div>
 						</div>
 						<br />
-						<!--EMPIEZA DESLIZABLE-->
-						<!--TERMINA DESLIZABLE-->
 					</div>
 					<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 				</div>
@@ -116,12 +97,9 @@ if (@!$_SESSION['user']) {
 		</div>
 		<!-- Footer
       ================================================== -->
-		<hr class="soften" />
-		<footer class="footer">
-
-			<hr class="soften" />
-			<p>&copy; Jorge Miranda Izcara en DAW2 <br /><br /></p>
-		</footer>
+		<?php
+		include("../include/pie.php");
+		?>
 	</div><!-- /container -->
 
 	<!-- Le javascript

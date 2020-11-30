@@ -30,7 +30,7 @@ if (@!$_SESSION['user']) {
 	?>
 </head>
 
-<body data-offset="40" background="images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="images/fondo.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
@@ -49,7 +49,7 @@ if (@!$_SESSION['user']) {
 		?>
 		<!-- ======================================================================================================================== -->
 
-		<h3>Escoge el tipo de compra</h3>
+		<h2>Escoge el tipo de compra</h2>
 		<div class="row" style="text-align:center">
 			<form class="navbar-search form-inline" style="margin-top:6px">
 

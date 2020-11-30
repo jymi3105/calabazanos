@@ -12,19 +12,16 @@ if (@!$_SESSION['user']) {
     <meta charset="utf-8">
     <title>Inventario del centro de sanidad forestal de Calabazanos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
     <meta name="author" content="Jorge Miranda Izcara">
-
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <?php
+    include("../include/miestilo.php");
+    ?>
 </head>
 
-<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
+
+<body data-offset="40" background="../images/laboratorioimg.jpg" style="background-attachment: fixed">
     <div class="container">
         <header class="header">
             <div class="row">
@@ -37,25 +34,11 @@ if (@!$_SESSION['user']) {
         <!-- Navbar
     ================================================== -->
 
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <div class="nav-collapse">
-                        <ul class="nav">
+        <?php
 
-                            <li><a href="../index2.php"> Volver a inicio </a></li>
+        include("../include/menu.php");
 
-                        </ul>
-
-                        <ul class="nav pull-right">
-                            <li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong></a></li>
-                            <li><a href="../desconectar.php"> Cerrar Cesión </a></li>
-                        </ul>
-
-                    </div><!-- /.nav-collapse -->
-                </div>
-            </div><!-- /navbar-inner -->
-        </div>
+        ?>
 
         <!-- ======================================================================================================================== -->
         <div class="row">
@@ -110,12 +93,10 @@ if (@!$_SESSION['user']) {
         </div>
         <!-- Footer
       ================================================== -->
-        <hr class="soften" />
-        <footer class="footer">
 
-            <hr class="soften" />
-            <p>&copy; Copyright Jorge Miranda Izcara<br /><br /></p>
-        </footer>
+      <?php
+		include("../include/pie.php");
+		?>
     </div><!-- /container -->
 
     <!-- Le javascript

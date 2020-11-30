@@ -30,7 +30,7 @@ if (@!$_SESSION['user']) {
 	?>
 </head>
 
-<body data-offset="40" background="images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="images/fondo.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
@@ -49,13 +49,13 @@ if (@!$_SESSION['user']) {
 		?>
 		<!-- ======================================================================================================================== -->
 
-		<h3>¿Que es lo que quieres hacer?</h3>
+		<h2>¿Que es lo que quieres hacer?</h2>
 		<div class="row" style="text-align:center">
 			<form action="#" class="navbar-search form-inline" style="margin-top:6px">
 				<div class="compras">
 
 					<a href="./updates/actualizaCampo.php">Tomar algun material para Campo</a>
-					<a href="./updates/actualizaLab.php">Tomar algun material del labortorio</a>
+					<a href="./updates/actualizaLab.php">Tomar algun material del laboratorio</a>
 					<a href="./Tablas/inventarioCampo.php">Ver inventario de campo</a>
 					<a href="./Tablas/materialLaboratorio.php">Ver inventario del laboratorio</a>
 					<a href="index2compras.php">¿Has comprado algo?</a>
@@ -71,6 +71,7 @@ if (@!$_SESSION['user']) {
 		include("include/pie.php");
 		?>
 
+		
 	</div><!-- /container -->
 
 

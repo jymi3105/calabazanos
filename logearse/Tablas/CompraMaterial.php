@@ -10,15 +10,18 @@ if (@!$_SESSION['user']) {
 
 <head>
     <meta charset="utf-8">
-    <title>Gastos del material</title>
+    <title>Compra del material</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jorge Miranda Izcara">
-
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <?php
+    include("../include/miestilo.php");
+    ?>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
 </head>
 
-<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/monedas.jpg" style="background-attachment: fixed">
     <div class="container">
         <header class="header">
             <div class="row">

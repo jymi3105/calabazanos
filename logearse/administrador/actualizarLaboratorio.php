@@ -11,15 +11,17 @@ if (@!$_SESSION['user']) {
 
 <head>
 	<meta charset="utf-8">
-	<title>Actualizacion de usuario</title>
+	<title>Actualizacion de materiales de laboratorio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Jorge Miranda Izcara">
-
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <?php
+    include("../include/miestilo.php");
+    ?>
 </head>
 
-<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/laboratorioimg.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
@@ -81,24 +83,17 @@ if (@!$_SESSION['user']) {
 							</div>
 						</div>
 						<br />
-						<!--EMPIEZA DESLIZABLE-->
-						<!--TERMINA DESLIZABLE-->
 					</div>
 					<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 				</div>
-
 			</div>
 		</div>
 		<!-- Footer
       ================================================== -->
-		<hr class="soften" />
-		<footer class="footer">
-
-			<hr class="soften" />
-			<p>&copy; Jorge Miranda Izcara en DAW2 <br /><br /></p>
-		</footer>
+		<?php
+		include("../include/pie.php");
+		?>
 	</div><!-- /container -->
-
 	<!-- Le javascript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->

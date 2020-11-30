@@ -18,12 +18,14 @@ elseif ($_SESSION['rol']==2) {
 	<title>Administrador de la web</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Jorge Miranda Izcara">
-
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<?php
+	include("../include/miestilo.php");
+	?>
 	</head>
 
-<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/papeles.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
@@ -37,7 +39,6 @@ elseif ($_SESSION['rol']==2) {
     ================================================== -->
 		<?php
 			include("../include/menuAdmin.php");
-
 		?>
 
 		<!-- ======================================================================================================================== -->
@@ -118,10 +119,9 @@ elseif ($_SESSION['rol']==2) {
 		</div>
 		<!-- Footer
       ================================================== -->
-		<footer class="footer">
-			<hr class="soften" />
-			<p>&copy; Copyright Jorge Miranda <br /><br /></p>
-		</footer>
+		<?php
+		include("../include/pie.php");
+		?>
 	</div><!-- /container -->
 
 	<!-- Le javascript

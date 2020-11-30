@@ -15,21 +15,19 @@ elseif ($_SESSION['rol']==2) {
 
 <head>
 	<meta charset="utf-8">
-	<title>Proyecto Academias</title>
+	<title>Invntario del material de campo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="author" content="Joseph Godoy">
+	<meta name="author" content="Jorge Miranda Izcara">
 
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
 	<link rel="shortcut icon" href="assets/ico/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+	<?php
+	include("../include/miestilo.php");
+	?>
 </head>
 
-<body data-offset="40" background="../images/fondotot.jpg" style="background-attachment: fixed">
+<body data-offset="40" background="../images/procesionaria.jpg" style="background-attachment: fixed">
 	<div class="container">
 		<header class="header">
 			<div class="row">
@@ -42,27 +40,9 @@ elseif ($_SESSION['rol']==2) {
 		<!-- Navbar
     ================================================== -->
 
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
-
-
-						</ul>
-						<form action="#" class="navbar-search form-inline" style="margin-top:6px">
-
-						</form>
-						<ul class="nav pull-right">
-							<li><a href="">Bienvenido <strong><?php echo $_SESSION['user']; ?></strong> </a></li>
-							<li><a href="../desconectar.php"> Cerrar Cesión </a></li>
-							<li><a href="../index2.php"> Volver a inicio </a></li>
-						</ul>
-					</div><!-- /.nav-collapse -->
-				</div>
-			</div><!-- /navbar-inner -->
-		</div>
+		<?php
+		include("../include/menu.php");
+		?>
 
 		<!-- ======================================================================================================================== -->
 		<div class="row">
@@ -100,7 +80,7 @@ elseif ($_SESSION['rol']==2) {
 							echo "<td>Proveedor</td>";
 							echo "<td>Actualizar</td>";
 							echo "<td>Borrar</td>";
-							
+
 							echo "</tr>";
 
 
@@ -114,7 +94,7 @@ elseif ($_SESSION['rol']==2) {
 								echo "<td>$arreglo[3]</td>";
 								echo "<td>$arreglo[4]</td>";
 								echo "<td>$arreglo[5]</td>";
-								
+
 
 								echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
 								echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
@@ -125,7 +105,7 @@ elseif ($_SESSION['rol']==2) {
 							}
 
 							echo "</table>";
-#Con este metodo saco todas las variables
+							#Con este metodo saco todas las variables
 							extract($_GET);
 							if (@$idborrar == 2) {
 
@@ -142,7 +122,7 @@ elseif ($_SESSION['rol']==2) {
 						</div>
 						<br />
 					</div>
-<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
+					<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 				</div>
 
 			</div>
