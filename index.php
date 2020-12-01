@@ -20,7 +20,6 @@
 			<h2 style="color: #0000FF; ">Inicio de sesión</h2>
 			<center>
 				<div class="Ingreso">
-
 					<table border="0" align="center" valign="middle">
 						<tr>
 							<td rowspan=2>
