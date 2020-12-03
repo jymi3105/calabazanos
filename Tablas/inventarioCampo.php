@@ -55,7 +55,7 @@ elseif ($_SESSION['rol']==2) {
 
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
 					<h2 class="titulo"> Inventario del material de campo.</h2>
-					<div class="well well-small">
+					<div class="well well-small animacion">
 						<hr class="soft" />
 						<h4>Material de Campo</h4>
 						<div class="row-fluid">

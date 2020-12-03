@@ -50,7 +50,7 @@ if (@!$_SESSION['user']) {
 		?>
 		<!-- ======================================================================================================================== -->
 
-		<h2>¿Que es lo que quieres hacer?</h2>
+		<h2 class="titulo">¿Que es lo que quieres hacer?</h2>
 		<div class="row" style="text-align:center">
 			<form action="#" class="navbar-search form-inline" style="margin-top:6px">
 				<div class="compras">

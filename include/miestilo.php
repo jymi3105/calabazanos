@@ -12,8 +12,12 @@
 		animation-duration: 10s;
 	}
 
-	.adaptacion{
-		width: 120%;
+	.nav a:hover{
+		font-size: 2em;
+	}
+
+	.menuP:hover{
+		background-color: yellowgreen;
 	}
 
 	@keyframes example {
