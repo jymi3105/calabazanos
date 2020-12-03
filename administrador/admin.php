@@ -46,9 +46,9 @@ elseif ($_SESSION['passAd']=='') {
 			<div class="span12">
 				<div class="caption">
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-					<h2> Elige una labor de administrador</h2>
+					<h2 class="titulo"> Elige una labor de administrador</h2>
 
-					<div class="well well-small">
+					<div class="well well-small animacion">
 						<hr class="soft" />
 
 						<div class="compras">

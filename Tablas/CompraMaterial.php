@@ -60,7 +60,7 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Listado de la compra de material</h2>
+                    <h2 class="titulo"> Listado de la compra de material</h2>
                     <div class="well well-small">
                         <hr class="soft" />
                         <h4>Listado de las compras</h4>

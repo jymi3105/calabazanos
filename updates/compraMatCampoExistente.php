@@ -45,7 +45,7 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Compra de material para el trabajo de campo</h2>
+                    <h2 class="titulo"> Compra de material para el trabajo de campo</h2>
                     <div class="well well-small">
                         <hr class="soft" />
                         <h4>Completa el formulario</h4>

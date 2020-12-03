@@ -16,16 +16,16 @@
 
 <body background="images/golf.png" style="background-attachment: fixed">
 	<center>
-		<div class="tit">
-			<h2 style="color: #0000FF; ">Inicio de sesión</h2>
+		<div>
+			<h2 class="titulo" style="color: #0000FF; ">Inicio de sesión</h2>
 			<center>
 				<div class="Ingreso">
 					<table border="0" align="center" valign="middle">
 						<tr>
 							<td rowspan=2>
-								<form action="validar.php" method="post">
-
-									<table border="0">
+								<form class="login" action="validar.php" method="post">
+								
+									<table  border="0">
 
 										<tr>
 											<td><label style="font-size: 14pt"><b>Usuario: </b></label></td>
@@ -44,7 +44,7 @@
 					<br>
 					<!-- formulario registro -->
 
-					<form method="post" action="registro.php">
+					<form class="registro" method="post" action="registro.php">
 						<fieldset>
 							<legend style="font-size: 18pt"><b>Registro</b></legend>
 							<div>

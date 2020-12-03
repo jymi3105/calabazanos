@@ -54,7 +54,7 @@ elseif ($_SESSION['rol']==2) {
 				<div class="caption">
 
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-					<h2> Inventario del material de campo.</h2>
+					<h2 class="titulo"> Inventario del material de campo.</h2>
 					<div class="well well-small">
 						<hr class="soft" />
 						<h4>Material de Campo</h4>

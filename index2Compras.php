@@ -49,7 +49,7 @@ if (@!$_SESSION['user']) {
 		?>
 		<!-- ======================================================================================================================== -->
 
-		<h2>Escoge el tipo de compra</h2>
+		<h2 class="titulo">Escoge el tipo de compra</h2>
 		<div class="row" style="text-align:center">
 			<form class="navbar-search form-inline" style="margin-top:6px">
 

@@ -44,7 +44,7 @@ if (@!$_SESSION['user']) {
             <div class="span12">
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-                    <h2> Administración del inventario del material de laboratorio</h2>
+                    <h2 class="titulo"> Administración del inventario del material de laboratorio</h2>
                     <div class="well well-small">
                         <hr class="soft" />
                         <h4>¿Que material quieres sacar?</h4>
