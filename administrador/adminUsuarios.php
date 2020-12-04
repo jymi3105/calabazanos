@@ -47,10 +47,10 @@ elseif ($_SESSION['rol']==2) {
 				<div class="caption">
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
 					<h2 class="titulo"> Administración de usuarios registrados</h2>
-					<div class="well well-small animacion">
+					<div class="well well-small animacion tablaUsuarios animacion">
 						<hr class="soft" />
-						<h4>Tabla de Usuarios</h4>
-						<div class="row-fluid">
+						<h4 class="titulo">Tabla de Usuarios</h4>
+						<div>
 							<?php
 
 							require("../connect_db.php");
@@ -61,18 +61,18 @@ elseif ($_SESSION['rol']==2) {
 
 							echo "<table border='1'; class='table table-hover';>";
 							echo "<tr class='warning'>";
-							echo "<td>dni</td>";
-							echo "<td>Usaurio</td>";
-							echo "<td>Password</td>";
-							echo "<td>Correo</td>";
-							echo "<td>Nombre</td>";
-							echo "<td>Apellidos</td>";
-							echo "<td>Password del administrador</td>";
-							echo "<td>Puesto</td>";
-							echo "<td>Coche</td>";
-							echo "<td>fecha Alta</td>";
-							echo "<td>Editar</td>";
-							echo "<td>Borrar</td>";
+							echo "<td>DNI</td>";
+							echo "<td>USUARIO</td>";
+							echo "<td>CONTRASEÑA</td>";
+							echo "<td>CORREO</td>";
+							echo "<td>NOMBRE</td>";
+							echo "<td>APELLIDOS</td>";
+							echo "<td>CONTRASEÑA DEL ADMINISTRADOR</td>";
+							echo "<td>PUESTO DE TRABAJO</td>";
+							echo "<td>COCHE DE EMPRESA</td>";
+							echo "<td>FECHA DE ALTA</td>";
+							echo "<td>EDITAR</td>";
+							echo "<td>BORRAR</td>";
 							echo "</tr>";
 							?>
 

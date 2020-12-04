@@ -61,9 +61,9 @@ if (@!$_SESSION['user']) {
                 <div class="caption">
                     <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
                     <h2 class="titulo"> Listado de la compra de material</h2>
-                    <div class="well well-small">
+                    <div class="well well-small animacion">
                         <hr class="soft" />
-                        <h4>Listado de las compras</h4>
+                        <h4 class="titulo">Listado de las compras</h4>
                         <div class="row-fluid">
                             <?php
 

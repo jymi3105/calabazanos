@@ -1,9 +1,22 @@
 <style>
+
+	.container2{
+		transition: background-color 1s;
+	}
+
+	.container2:hover{
+		background-color: greenyellow;
+	}
 	.compras {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 
+	}
+
+	.tablaUsuarios{
+		width: 125%;
+		margin-left: -10%;
 	}
 
 	.animacion {

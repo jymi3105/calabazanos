@@ -44,9 +44,9 @@ if (@!$_SESSION['user']) {
 				<div class="caption">
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
 					<h2 class="titulo"> Administración de materiales de campo</h2>
-					<div class="well well-small">
+					<div class="well well-small animacion">
 						<hr class="soft" />
-						<h4>Tabla con los materiales registrados</h4>
+						<h4 class="titulo">Tabla con los materiales registrados</h4>
 						<div class="row-fluid">
 							<?php
 

@@ -45,7 +45,7 @@ if (@!$_SESSION['user']) {
 					<h2 class="titulo"> Actualización de usuarios registrados</h2>
 					<div class="well well-small">
 						<hr class="soft" />
-						<h4>Edición de usuarios</h4>
+						<h4 class="titulo">Edición de usuarios</h4>
 						<div class="row-fluid">
 
 							<?php

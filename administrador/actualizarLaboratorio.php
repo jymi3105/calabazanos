@@ -48,7 +48,7 @@ if (@!$_SESSION['user']) {
 					<h2 class="titulo"> Administración de materiales de laboatorio</h2>
 					<div class="well well-small">
 						<hr class="soft" />
-						<h4>Edición de materiales</h4>
+						<h4 class="titulo">Edición de materiales</h4>
 						<div class="row-fluid">
 
 							<?php

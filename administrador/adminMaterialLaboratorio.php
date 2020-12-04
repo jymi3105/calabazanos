@@ -43,10 +43,10 @@ if (@!$_SESSION['user']) {
 			<div class="span12">
 				<div class="caption">
 					<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-					<h2 class="titulo"> Administración de usuarios registrados</h2>
-					<div class="well well-small">
+					<h2 class="titulo"> Administración de los materiales de laboratorio registrados</h2>
+					<div class="well well-small animacion">
 						<hr class="soft" />
-						<h4>Tabla de Usuarios</h4>
+						<h4 class="titulo">Tabla de materiales de laboratorio</h4>
 						<div class="row-fluid">
 							<?php
 

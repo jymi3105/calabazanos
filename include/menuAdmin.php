@@ -1,6 +1,6 @@
 <div class="navbar">
 			<div class="navbar-inner">
-				<div class="container">
+				<div class="container container2">
 					<div class="nav-collapse">
 						<ul class="nav">
 							<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>

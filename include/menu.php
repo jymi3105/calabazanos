@@ -2,7 +2,7 @@
 
 <div class="navbar ">
   <div class="navbar-inner">
-	<div class="container">
+	<div class="container container2">
 	  <div class="menuP nav-collapse">
 		<ul class="nav">
 			<li><a href="../index2.php">Principal</a></li>
